@@ -21,6 +21,7 @@ z = random.randint(100, size = (3,5))
 
 # Generate Random Number From Array
 # Array as a parameter and randomly returns a value 
+print("8"*20)
 print(random.choice(y)) 
 print(random.choice(y, size=(3)))
 
@@ -59,10 +60,94 @@ import matplotlib.pyplot as plt
 import seaborn as sea
 
 # plotting a Displot 
-sea.displot([0,1,2,3,4,5,6])
+# sea.displot([0,1,2,3,4,5,6])
 # plt.show()
 
 # Plotting a Displot Without the Histogram
-sea.displot([0,1,2,3,4,5,6], kind="kde")
-sea.displot([0,1,2,3,4,5,6], kind="ecdf")
+# sea.displot([0,1,2,3,4,5,6], kind="kde")
+# sea.displot([0,1,2,3,4,5,6], kind="ecdf")
+# plt.show()
+
+
+# Normal distribution 
+# The Normal Distribution is one of the most important distributions.
+# It fits the probability distribution of many events, eg. IQ Scores, Heartbeat etc.
+# takes three parameters log, scale , size 
+
+x = random.normal(size=(2,3))
+y = random.normal(loc=1,scale=2, size=(2,3))
+
+# sea.displot(random.normal(size=1000), kind="kde")
+# plt.show()
+# The curve of a Normal Distribution is also known as the Bell Curve because of the bell-shaped curve.
+
+# Binomial Distribution - is a Discrete Distribution 
+# three parameters n ,p ,size 
+
+x = random.binomial(n=10, p=0.5, size=10)
+# sea.displot(random.binomial(n=10, p=0.5, size= 1000))
+# plt.show()
+
+
+# Difference between normal and binomial distribution 
+data = {
+    "Normal" : random.normal(loc=50, scale=5, size=1000),
+    "Binomial": random.binomial(n=100, p=0.5, size=1000)
+}
+# sea.displot(data, kind="kde")
+# plt.show()
+
+# Poisson Distribution --is a Discrete Distribution.
+# It estimates how many times an event can happen in a specified time. e.g. If someone eats twice a day what is the probability he will eat thrice?
+
+# It has two parameters:
+# lam - rate or known number of occurrences 
+# size - The shape of the returned array.
+print(random.poisson(lam=2, size=10))
+
+# sea.displot(random.poisson(lam=2,size=1000))
+# plt.show()
+
+#Difference between Normal and Poisson Distribution 
+
+Data = {
+    "Normal": random.normal(loc=50, scale=7, size=1000),
+    "Poisson": random.poisson(lam=50, size=1000),
+    "Binomial" : random.binomial(n =1000, p=0.1, size=1000)
+}
+# sea.displot(Data, kind="kde")
+# plt.show()
+
+
+# Uniform Distribution
+# Used to describe probability where every event has equal chances of occuring.
+# E.g. Generation of random numbers.
+
+# It has three parameters:
+# low - lower bound - default 0.0
+# high - upper bound - default 1.0
+# size - The shape of the returned array
+x = random.uniform(size=(2,3))
+
+sea.displot(random.uniform(size=1000),kind="kde")
+#plt.show()
+
+# Logistic Distribution
+# Logistic Distribution is used to describe growth.
+# Used extensively in machine learning in logistic regression, neural networks etc.
+
+# It has three parameters:
+# loc - mean, where the peak is. Default 0.
+# scale - standard deviation, the flatness of distribution. Default 1.
+# size - The shape of the returned array.
+
+x = random.logistic(loc=1, scale=2, size=(2,3))
+# sea.displot(random.logistic(size=1000), kind="kde")
+# plt.show()
+data = {
+    "Normal":random.normal(scale=2, size=1000),
+    "Logistic": random.logistic(size=1000)
+}
+sea.displot(data, kind="kde")
 plt.show()
+
