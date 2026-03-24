@@ -151,3 +151,68 @@ data = {
 sea.displot(data, kind="kde")
 plt.show()
 
+# Multinomial distribution is a generalization of binomial distribution.
+# It describes outcomes of multi-nomial scenarios unlike binomial where scenarios must be only one of two. e.g. Blood type of a population, dice roll outcome.
+# It has three parameters:
+# n - number of times to run the experiment.
+# pvals - list of probabilties of outcomes (e.g. [1/6, 1/6, 1/6, 1/6, 1/6, 1/6] for dice roll).
+# size - The shape of the returned array.
+x = random.multinomial(n=6, pvals=[1/6, 1/6, 1/6, 1/6, 1/6, 1/6])
+
+# visualization is similar to multiple binomial distribution 
+
+# Exponential Distribution
+# Exponential distribution is used for describing time till next event e.g. failure/success etc.
+
+# It has two parameters:
+
+# scale - inverse of rate ( see lam in poisson distribution ) defaults to 1.0.
+
+# size - The shape of the returned array.
+x = random.exponential(scale=2, size=(2,3))
+sea.displot(random.exponential(size=1000), kind="kde")
+
+# Chi Square Distribution
+# Chi Square distribution is used as a basis to verify the hypothesis.
+
+# It has two parameters:
+
+# df - (degree of freedom).
+
+# size - The shape of the returned array.
+x = random.chisquare(df=2, size=(2,3))
+sea.displot(random.chisquare(df=1, size=1000), kind="kde")
+
+# Rayleigh Distribution
+# Rayleigh distribution is used in signal processing.
+
+# It has two parameters:
+
+# scale - (standard deviation) decides how flat the distribution will be default 1.0).
+
+# size - The shape of the returned array.
+
+x = random.rayleigh(scale=2, size=(2,3))
+sea.displot(random.rayleigh(size=1000), kind="kde")
+
+# Pareto Distribution
+# A distribution following Pareto's law i.e. 80-20 distribution (20% factors cause 80% outcome).
+
+# It has two parameter:
+
+# a - shape parameter.
+
+# size - The shape of the returned array.
+x= random.pareto(a=2, size=(2,3))
+sea.displot(random.pareto(a=2, size=1000))
+
+# Zipf distributions are used to sample data based on zipf's law.It has two parameters:
+
+# a - distribution parameter.
+
+# size - The shape of the returned array.In a collection, the nth common term is 1/n times of the most common term.\
+#       E.g. the 5th most common word in English occurs nearly 1/5 times as often as the most common word.
+
+x= random.zipf(a=2, size=(2,3))
+sea.displot(random.zipf(a=2, size=1000))
+
